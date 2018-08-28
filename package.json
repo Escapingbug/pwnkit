@@ -1,0 +1,21 @@
+{
+  "name": "pwnkit",
+  "version": "0.0.1",
+  "description": "a pwnable toolkit in typescript",
+  "main": "built/index.js",
+  "types": "built/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anciety",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@types/async-retry": "^1.2.1",
+    "@types/bignum": "0.0.29",
+    "@types/node": "^10.9.2",
+    "ansi-colors": "^3.0.5",
+    "async-retry": "^1.2.1",
+    "bignum": "^0.13.0"
+  }
+}
