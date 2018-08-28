@@ -15,7 +15,7 @@ export class Process extends Logger implements Pipeline, LoggerInterface {
         this.proc_ = child_process.spawn(path, args, options);
         this.info(util.format('Launched new process %d (%s)', this.proc_.pid, path));
         this.proc_.on('exit', (code?: number, signal?: string) => {
-            if (code) {
+            if (code != null) {
                 this.info(`Process ended with code ${code}`);
             } else {
                 this.info(`Child process end with signal ${signal}`);
@@ -28,11 +28,11 @@ export class Process extends Logger implements Pipeline, LoggerInterface {
     }
 
     public send(content: string) {
-        this.proc_.stdin.write(content);
+        this.buffer_.send(content);
     }
 
     public sendline(content: string) {
-        this.proc_.stdin.write(content + "\n");
+        this.buffer_.sendline(content);
     }
 
     public async recv(numb: number): Promise<string> {

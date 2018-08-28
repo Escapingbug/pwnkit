@@ -44,15 +44,18 @@ export class Remote extends Logger implements Pipeline, LoggerInterface {
      * @param content data to send
      */
     public send(content: string) {
+        /*
         let logHandler = () => {
             this.debug("sent bytes: \n");
             this.debug(hexdump(content));
         }
         this.socket_.write(content, "utf8", logHandler);
+         */
+        this.buffer_.send(content);
     }
 
     public sendline(content: string) {
-        this.send(content + "\n");
+        this.buffer_.sendline(content);
     }
 
     public async recv(numb: number): Promise<string> {
